@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Học Piano</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- TRANG CHỦ / MỤC LỤC -->
+  <section id="home" class="screen">
+    <header class="home-head">
+      <h1>Học Piano</h1>
+      <div class="home-actions">
+        <button id="midiBtn" class="chip">Kết nối đàn</button>
+        <button id="namesBtn" class="chip">Tên nốt: Đô Rê Mi</button>
+      </div>
+    </header>
+    <div id="midiStatus" class="midi-status">Chưa kết nối đàn. Cắm cáp USB từ cổng "USB TO HOST" của đàn vào máy tính, rồi bấm "Kết nối đàn".</div>
+
+    <button id="continueBtn" class="continue hidden"></button>
+
+    <div class="toc-head">
+      <h2>Mục lục</h2>
+      <span id="tocSummary"></span>
+    </div>
+    <div class="toc-tools">
+      <input id="search" type="search" placeholder="Tìm theo tên bài, số bài hoặc số trang…" autocomplete="off">
+      <div class="filters" id="filters">
+        <button class="chip on" data-f="all">Tất cả</button>
+        <button class="chip" data-f="theory">Lý thuyết</button>
+        <button class="chip" data-f="R">Tay phải</button>
+        <button class="chip" data-f="L">Tay trái</button>
+        <button class="chip" data-f="both">Hai tay</button>
+        <button class="chip" data-f="todo">Chưa hoàn thành</button>
+      </div>
+    </div>
+    <div id="toc"></div>
+  </section>
+
+  <!-- MÀN HÌNH LUYỆN TẬP -->
+  <section id="play" class="screen hidden">
+    <div class="topbar">
+      <button id="pauseBtn" class="pause" aria-label="Tạm dừng"><span></span><span></span></button>
+      <div class="instr">
+        <div id="instrText">Chơi các nốt sau</div>
+        <div id="tipText" class="tip"></div>
+      </div>
+      <div class="right">
+        <div class="progress"><div id="progFill"></div><span id="progText">0/0</span></div>
+        <div class="metro">
+          <button id="metroBtn" class="chip small">Máy đếm nhịp: Tắt</button>
+          <div class="bpm">
+            <button id="bpmDown" class="round" aria-label="Chậm hơn">−</button>
+            <span id="bpmText">60</span>
+            <button id="bpmUp" class="round" aria-label="Nhanh hơn">+</button>
+          </div>
+          <div id="beatDots" class="dots"></div>
+        </div>
+      </div>
+    </div>
+    <div class="staff-wrap">
+      <div id="staff" class="staff"></div>
+      <div id="countIn" class="count-in hidden"></div>
+      <div id="feedback" class="feedback"></div>
+    </div>
+    <div id="keyboard" class="keyboard"></div>
+  </section>
+
+  <!-- MENU TẠM DỪNG -->
+  <div id="pauseMenu" class="overlay hidden">
+    <div class="card">
+      <h2>Tạm dừng</h2>
+      <button id="resumeBtn" class="btn">Tiếp tục</button>
+      <button id="reviewBtn" class="btn ghost">Xem lại lý thuyết</button>
+      <button id="restartBtn" class="btn ghost">Làm lại từ đầu</button>
+      <button id="homeBtn" class="btn ghost">Về mục lục</button>
+    </div>
+  </div>
+
+  <!-- LÝ THUYẾT -->
+  <div id="theory" class="overlay hidden">
+    <div class="card wide">
+      <h2 id="thTitle"></h2>
+      <div id="thBody" class="th-body"></div>
+      <button id="thStart" class="btn">Bắt đầu luyện tập</button>
+      <button id="thDone" class="btn ghost">Đã hiểu · Về mục lục</button>
+      <button id="thHome" class="btn ghost">Về mục lục</button>
+    </div>
+  </div>
+
+  <!-- KẾT QUẢ -->
+  <div id="result" class="overlay hidden">
+    <div class="card">
+      <h2 id="resTitle">Hoàn thành!</h2>
+      <div id="resStars" class="stars"></div>
+      <p id="resText"></p>
+      <button id="nextBtn" class="btn">Bài tiếp theo</button>
+      <button id="againBtn" class="btn ghost">Tập lại</button>
+      <button id="resHomeBtn" class="btn ghost">Về mục lục</button>
+    </div>
+  </div>
+
+  <script src="lib/vexflow-bravura.js"></script>
+  <script src="lessons.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

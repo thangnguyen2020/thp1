@@ -1,0 +1,43 @@
+HƯỚNG DẪN SỬ DỤNG APP HỌC PIANO
+================================
+
+1. MỞ APP
+   - Giải nén file piano-app.zip.
+   - Mở thư mục piano-app, chuột phải vào file index.html
+     -> Open With (Mở bằng) -> Google Chrome.
+   - Không dùng Safari: Safari không kết nối được với đàn.
+
+2. NỐI ĐÀN YAMAHA P-45
+   - Cáp USB A-B (giống cáp máy in): đầu vuông cắm cổng "USB TO HOST" sau đàn,
+     đầu kia cắm vào MacBook (cần thêm đầu chuyển USB-C).
+   - Bật đàn, bấm "Kết nối đàn" trên trang chủ, chọn "Allow" (Cho phép).
+
+3. LUYỆN TẬP
+   - Mục lục: chọn bài bất kỳ. Có ô tìm kiếm và nút lọc Tay phải / Tay trái /
+     Chưa hoàn thành. Nút trắng trên cùng để học tiếp bài gần nhất.
+   - Không có đàn vẫn tập được bằng bàn phím máy tính:
+       hàng A S D F G H J K = Đô giữa đến Đô cao (tay phải)
+       hàng Z X C V B N M   = Đô thấp đến Si (tay trái)
+   - Máy đếm nhịp: bấm nút "Máy đếm nhịp" để bật. App đếm vào 1 ô nhịp
+     (số 1-2-3-4 to giữa màn hình), sau đó anh bắt đầu chơi đúng phách.
+     Nốt chơi đúng nhịp màu xanh lá, sớm/muộn màu cam.
+     Nút - và + để chỉnh tốc độ. Mới tập nên để chậm (50-60).
+
+4. MỤC LỤC THEO SÁCH
+   - Mục lục xếp đúng thứ tự sách Alfred's Adult All-in-One Level 1,
+     mỗi bài ghi số trang (tr.) tương ứng trong sách.
+   - Chương 1–5 (trang 4–49) đã có bài. Các chương sau hiện mờ, ghi "Sắp có".
+   - Bài "Lý thuyết" chỉ có phần đọc. Bài có nốt nhạc sẽ hiện lý thuyết trước,
+     bấm "Bắt đầu luyện tập" để chơi. Trong lúc tạm dừng có nút "Xem lại lý thuyết".
+   - Hợp âm: bấm đủ các phím được tô tím (cùng lúc hoặc lần lượt đều được).
+
+5. THÊM HOẶC SỬA BÀI (không cần biết lập trình)
+   - Cài phần mềm soạn thảo miễn phí "Visual Studio Code" (khuyên dùng),
+     hoặc dùng TextEdit nhưng phải chọn Format -> Make Plain Text.
+   - Mở file lessons.js. Phần đầu file giải thích cách viết nốt, ví dụ:
+       C4:q:1            = Đô giữa, nốt đen, ngón 1
+       C3+E3+G3:w:5+3+1  = hợp âm Đô trưởng tay trái, nốt tròn
+       r:h               = dấu lặng trắng
+   - Bài "Sắp có" chỉ cần xóa chữ  soon: true  rồi thêm dòng rh: "..." hoặc lh: "...".
+   - Lưu file, quay lại Chrome bấm Cmd + R. Nếu viết sai, mục lục sẽ báo
+     "Lỗi trong bài" kèm lý do ngay tại bài đó.
