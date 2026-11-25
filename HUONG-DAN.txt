@@ -18,10 +18,7 @@ HƯỚNG DẪN SỬ DỤNG APP HỌC PIANO
    - Không có đàn vẫn tập được bằng bàn phím máy tính:
        hàng A S D F G H J K = Đô giữa đến Đô cao (tay phải)
        hàng Z X C V B N M   = Đô thấp đến Si (tay trái)
-   - Máy đếm nhịp: bấm nút "Máy đếm nhịp" để bật. App đếm vào 1 ô nhịp
-     (số 1-2-3-4 to giữa màn hình), sau đó anh bắt đầu chơi đúng phách.
-     Nốt chơi đúng nhịp màu xanh lá, sớm/muộn màu cam.
-     Nút - và + để chỉnh tốc độ. Mới tập nên để chậm (50-60).
+   - Máy đếm nhịp: xem mục 6 bên dưới.
 
 4. MỤC LỤC THEO SÁCH
    - Mục lục xếp đúng thứ tự sách Alfred's Adult All-in-One Level 1,
@@ -41,3 +38,72 @@ HƯỚNG DẪN SỬ DỤNG APP HỌC PIANO
    - Bài "Sắp có" chỉ cần xóa chữ  soon: true  rồi thêm dòng rh: "..." hoặc lh: "...".
    - Lưu file, quay lại Chrome bấm Cmd + R. Nếu viết sai, mục lục sẽ báo
      "Lỗi trong bài" kèm lý do ngay tại bài đó.
+
+6. MÁY ĐẾM NHỊP (dành cho người mới)
+   Trong app: bấm nút "?" tròn cạnh nút "Máy đếm nhịp", hoặc nút
+   "Cách dùng máy đếm nhịp" ở trang chủ, để xem hướng dẫn có hình màu.
+
+   - Máy đếm nhịp là tiếng "tíc" đều đặn, mỗi tiếng = 1 phách.
+     Tiếng cao hơn và chấm màu vàng = phách 1 (đầu ô nhịp).
+   - Bật/tắt: bấm nút "Máy đếm nhịp". Khi bật, bài bắt đầu lại từ đầu.
+     Khi tắt, app chờ anh bấm đúng nốt, không tính nhịp.
+   - Tốc độ (BPM) = số tiếng tíc mỗi phút. 60 = mỗi giây 1 tiếng.
+     Nút - chậm hơn, nút + nhanh hơn (mỗi lần 5).
+   - Đếm vào: app đếm 1-2-3-4 (to giữa màn hình) để anh nghe trước.
+     Chơi nốt đầu đúng tiếng tíc ngay sau số cuối.
+   - Giữ nốt: nốt đen 1 tíc, nốt trắng 2 tíc, nốt tròn 4 tíc.
+     Dấu lặng: nhấc tay nhưng vẫn đếm.
+   - Màu: xanh lá = đúng nhịp, cam = hơi sớm / hơi muộn.
+     Cuối bài có điểm "Đúng nhịp", số sao tính theo cả nốt và nhịp.
+   - Mẹo: tắt máy đếm nhịp tập cho thuộc nốt trước; sau đó bật ở 40-50;
+     đếm to theo; được 3 sao thì tăng 5; bấm sai đừng dừng lại.
+
+7. NGHE BẰNG MICRO (không cần cáp)
+   Bấm "Micro: Tắt" (trang chủ hoặc màn hình bài tập) để bật. Lần đầu trình
+   duyệt hỏi quyền dùng micro: chọn Cho phép (Allow).
+   Nút "?" cạnh nút Micro (hoặc "Micro hay cáp MIDI?" ở trang chủ) mở bảng so sánh.
+
+   Ưu điểm micro: không cần cáp; dùng được trên iPad/iPhone/Android (khi app
+   được đưa lên trang web) và cả đàn cơ.
+   Nhược điểm micro: chỉ nghe được MỘT nốt mỗi lúc (hợp âm chỉ chấm gần đúng);
+   dễ nghe nhầm khi phòng ồn; chậm hơn cáp MIDI một chút nên chấm nhịp kém
+   chính xác hơn; nốt trầm đôi khi bị nhầm quãng tám; không dùng được khi
+   cắm tai nghe vào đàn (đàn tắt loa).
+   Cáp MIDI: chính xác nhất, chấm đủ hợp âm, gần như không trễ; nhưng cần cáp
+   USB và Chrome/Edge trên máy tính hoặc Android (không chạy trên iPhone/iPad).
+
+   Mỗi bài có nhãn gợi ý:
+     "Dùng micro cũng được" = bài chơi từng nốt một.
+     "Nên dùng cáp MIDI"    = bài có hợp âm hoặc hai tay cùng lúc.
+   Trong mục lục, bài nên dùng cáp có chữ "nên dùng MIDI" màu vàng.
+
+   Mẹo: phòng yên tĩnh, đặt máy cách loa đàn 0,5-1 m, âm lượng đàn vừa phải,
+   hai nốt giống nhau liền nhau thì nhấc tay hẳn rồi bấm lại.
+   Dòng "Micro nghe: ..." góc trên bên phải cho biết app vừa nghe ra nốt gì.
+
+8. NGHE APP CHƠI MẪU
+   Trên màn hình bài tập, bấm "▶ Nghe app chơi mẫu": app tự chơi cả bài đúng
+   nốt, đúng nhịp theo tốc độ đang chọn (nút - / +). Nốt đang chơi được tô
+   trên khuông nhạc và phím đàn sáng lên.
+   - Nếu máy đếm nhịp đang bật: app đếm vào 1 ô nhịp rồi mới chơi, tiếng tíc
+     chạy suốt bài để anh nghe nhịp.
+   - Bấm "■ Dừng nghe mẫu" để dừng. Chơi xong, app tự quay lại đầu bài và báo
+     "Đến lượt anh chơi!".
+   - Trong lúc app chơi mẫu, app không chấm điểm phím anh bấm.
+   Mẹo: chỉnh tốc độ chậm (50-60) để nghe rõ từng nốt.
+
+9. GIAO DIỆN WATERFALL (NỐT RƠI)
+   Bấm "Giao diện: Khuông nhạc" để chuyển sang "Waterfall" (bấm lần nữa để
+   quay lại). App nhớ lựa chọn này cho lần sau.
+   - Mỗi nốt là một thanh rơi xuống đúng phím đàn bên dưới. Thanh càng dài
+     thì giữ phím càng lâu.
+   - Màu: TAY PHẢI xanh lá, TAY TRÁI xanh dương. Phím cần bấm cũng sáng theo
+     màu tay.
+   - Chân mỗi thanh ghi tên nốt và số ngón tay.
+   - Máy đếm nhịp TẮT: thanh rơi xuống rồi đứng chờ ở vạch, anh bấm đúng thì
+     nốt tiếp theo mới rơi tiếp. Hợp để tập chậm.
+   - Máy đếm nhịp BẬT: thanh rơi đều theo nhịp, chạm vạch đúng lúc cần bấm.
+     Nếu anh chậm, thanh đứng chờ.
+   - Dùng được cùng cáp MIDI, micro và "Nghe app chơi mẫu".
+   - Bấm sai: thanh nháy đỏ.
+   Lưu ý: bài "Gọi tên phím trắng" luôn hiện kiểu chữ to, không có waterfall.

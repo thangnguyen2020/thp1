@@ -1,6 +1,10 @@
 :root {
-  --purple: #9b66f5;
-  --purple-dark: #5b35a6;
+  /* Màu chủ đạo: xanh ngọc theo mẫu của anh Thang (#52957A).
+     Nền dùng sắc đậm hơn một chút để chữ trắng đủ dễ đọc. */
+  --brand: #3f8064;        /* nền chính, nút */
+  --brand-light: #52957a;  /* đúng màu mẫu: thanh tiến độ, phím cần bấm */
+  --brand-dark: #2a5c47;   /* tiêu đề trong hộp trắng, rãnh thanh tiến độ */
+  --brand-tint: #e3f1eb;   /* nền nút phụ */
   --cyan: #19c9c9;
   --green: #22a05a;
   --red: #e5484d;
@@ -11,7 +15,7 @@
 html, body { margin: 0; height: 100%; }
 body {
   font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
-  background: var(--purple);
+  background: var(--brand);
   color: var(--white);
   overflow: hidden;
   user-select: none;
@@ -29,11 +33,11 @@ button { font: inherit; cursor: pointer; }
   border: 2px solid rgba(255,255,255,.7); background: transparent; color: #fff;
   border-radius: 999px; padding: 8px 16px; font-weight: 600;
 }
-.chip.on { background: #fff; color: var(--purple-dark); }
+.chip.on { background: #fff; color: var(--brand-dark); }
 .midi-status { margin: 12px 0 20px; opacity: .9; font-size: 15px; }
 .continue {
   display: block; width: 100%; max-width: 560px; text-align: left; border: none; border-radius: 16px;
-  padding: 16px 20px; background: #fff; color: var(--purple-dark); font-weight: 700; font-size: 17px; margin-bottom: 8px;
+  padding: 16px 20px; background: #fff; color: var(--brand-dark); font-weight: 700; font-size: 17px; margin-bottom: 8px;
 }
 .continue small { display: block; font-weight: 500; opacity: .75; font-size: 13px; margin-bottom: 2px; }
 .toc-head { display: flex; align-items: baseline; gap: 12px; margin-top: 18px; }
@@ -66,7 +70,7 @@ button { font: inherit; cursor: pointer; }
 .row .tag { font-size: 12px; padding: 3px 10px; border-radius: 999px; background: rgba(255,255,255,.2); white-space: nowrap; }
 .row .tag.L { background: #ffd84d; color: #4a3500; }
 .row .tag.both { background: #19c9c9; color: #003b3b; }
-.row .tag.theory { background: #fff; color: var(--purple-dark); }
+.row .tag.theory { background: #fff; color: var(--brand-dark); }
 .row .num small { display: block; font-size: 11px; opacity: .8; }
 .row.soon { opacity: .55; cursor: default; }
 .row.soon:hover { background: transparent; }
@@ -93,9 +97,9 @@ button { font: inherit; cursor: pointer; }
 .tip { font-size: 14px; opacity: .9; margin-top: 6px; max-width: 640px; }
 .progress {
   flex: none; width: 100%; height: 34px; margin-top: 8px; border-radius: 999px;
-  background: var(--purple-dark); position: relative; overflow: hidden;
+  background: var(--brand-dark); position: relative; overflow: hidden;
 }
-#progFill { position: absolute; inset: 0 auto 0 0; width: 0; background: #7d4fd6; transition: width .25s; }
+#progFill { position: absolute; inset: 0 auto 0 0; width: 0; background: var(--brand-light); transition: width .25s; }
 #progText { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); font-weight: 600; }
 
 .right { flex: none; width: min(34vw, 400px); display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
@@ -128,19 +132,20 @@ button { font: inherit; cursor: pointer; }
   color: #222; font-weight: 700; padding-bottom: 10px; font-size: clamp(11px, 1.4vw, 18px);
 }
 .key.black { height: 60%; background: linear-gradient(#444, #111); border: 1px solid #000; z-index: 2; }
-.key.target.white { background: linear-gradient(#cdb3ff, #9b66f5); }
-.key.target.black { background: linear-gradient(#b48cff, #6b3fd0); }
+.key.target.white { background: linear-gradient(#c4e6d6, var(--brand-light)); }
+.key.target.black { background: linear-gradient(#7fbfa3, var(--brand-dark)); }
 .key.down.white { background: #ddd; }
 .key.down.black { background: #555; }
-.key.ok { background: var(--green) !important; }
+.key.ok { background: #2ecc71 !important; }
 .key.bad { background: var(--red) !important; }
 
 /* ---------- Hộp thoại ---------- */
-.overlay { position: fixed; inset: 0; background: rgba(30,10,60,.55); display: flex; align-items: center; justify-content: center; z-index: 10; padding: 16px; }
+.overlay { position: fixed; inset: 0; background: rgba(12,40,30,.6); display: flex; align-items: center; justify-content: center; z-index: 10; padding: 16px; }
 .card { background: #fff; color: #222; border-radius: 20px; padding: 28px; width: min(380px, 100%); display: flex; flex-direction: column; gap: 10px; text-align: center; }
-.card h2 { margin: 0 0 6px; color: var(--purple-dark); }
-.btn { border: none; border-radius: 12px; padding: 12px; background: var(--purple); color: #fff; font-weight: 700; }
-.btn.ghost { background: #f0eaff; color: var(--purple-dark); }
+.card h2 { margin: 0 0 6px; color: var(--brand-dark); }
+.btn { border: none; border-radius: 12px; padding: 12px; background: var(--brand); color: #fff; font-weight: 700; }
+.btn:hover { filter: brightness(1.08); }
+.btn.ghost { background: var(--brand-tint); color: var(--brand-dark); }
 .stars { font-size: 40px; color: #ffb800; letter-spacing: 6px; }
 
 /* ---------- Bổ sung: lý thuyết, tìm phím, số dòng ---------- */
@@ -154,3 +159,37 @@ button { font: inherit; cursor: pointer; }
 .find b { font-size: 96px; line-height: 1.1; }
 .find span { font-size: 22px; opacity: .8; }
 .find.bad b { color: #ffd0d2; }
+
+/* ---------- Hướng dẫn máy đếm nhịp ---------- */
+.round.help { width: 26px; height: 26px; font-size: 15px; background: #fff; color: var(--brand-dark); }
+.help-body h3 { margin: 14px 0 6px; font-size: 16px; color: var(--brand-dark); }
+.help-body h3:first-child { margin-top: 0; }
+.help-body p { margin: 0 0 6px; }
+.dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
+.dot.green { background: #22a05a; }
+.dot.orange { background: #f08c00; }
+
+/* ---------- Micro & nhãn gợi ý ---------- */
+.mic-hear { font-size: 13px; font-weight: 600; opacity: .9; white-space: nowrap; }
+.badge { display: inline-block; font-size: 12px; font-weight: 700; padding: 2px 10px; border-radius: 999px; margin-left: 4px; vertical-align: 1px; }
+.badge.mic { background: #d9f3e6; color: #1d5a40; }
+.badge.midi { background: #ffe08a; color: #4a3500; }
+.row { grid-template-columns: 76px 1fr auto auto auto; }
+.row .inp { font-size: 11px; font-weight: 700; color: #ffe08a; white-space: nowrap; }
+.cmp { width: 100%; border-collapse: collapse; font-size: 14px; margin: 4px 0 8px; }
+.cmp th, .cmp td { border: 1px solid #d5e6de; padding: 6px 8px; text-align: left; vertical-align: top; }
+.cmp th { background: var(--brand-tint); color: var(--brand-dark); }
+.cmp td:first-child { font-weight: 600; width: 26%; }
+.cmp td.good { background: #effaf4; }
+.cmp td.bad { background: #fff4f0; }
+@media (max-width: 560px) { .row { grid-template-columns: 56px 1fr auto; } .row .inp { display: none; } }
+
+/* ---------- Nghe mẫu & Waterfall ---------- */
+.play-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+.wf { flex: 1; width: 100%; height: 100%; min-height: 0; display: block; }
+.key.white.hand-R, .key.white.sound-R { background: linear-gradient(#d4f5c6, #78d65c) !important; }
+.key.black.hand-R, .key.black.sound-R { background: linear-gradient(#9be582, #3f9a2a) !important; }
+.key.white.hand-L, .key.white.sound-L { background: linear-gradient(#d6e6fa, #7caae6) !important; }
+.key.black.hand-L, .key.black.sound-L { background: linear-gradient(#a9c8f0, #3d6fae) !important; }
+.key.sound-R, .key.sound-L { box-shadow: 0 0 18px rgba(255,255,255,.7); }
+.feedback { text-shadow: 0 1px 4px rgba(0,0,0,.55); pointer-events: none; }

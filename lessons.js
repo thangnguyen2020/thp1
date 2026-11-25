@@ -16,6 +16,9 @@
 //    pickup: 3,                       (tùy chọn) ô nhịp lấy đà có 3 phách
 //    tempo: 60,                       tốc độ gợi ý cho máy đếm nhịp
 //    soon: true                       bài chưa soạn, hiện "Sắp có" trong mục lục
+//    input: "midi"                    (tùy chọn) gợi ý cách nghe: "midi" = nên cắm cáp,
+//                                     "mic" = micro cũng được. Bỏ trống thì app tự chọn:
+//                                     bài có hợp âm / hai tay cùng lúc -> "midi", còn lại -> "mic"
 //  }
 //
 //  ---------------- CÁCH VIẾT NỐT ----------------

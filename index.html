@@ -14,9 +14,14 @@
       <div class="home-actions">
         <button id="midiBtn" class="chip">Kết nối đàn</button>
         <button id="namesBtn" class="chip">Tên nốt: Đô Rê Mi</button>
+        <button id="homeMicBtn" class="chip">Micro: Tắt</button>
+        <button id="homeMicHelp" class="chip">Micro hay cáp MIDI?</button>
+        <button id="homeMetroHelp" class="chip">Cách dùng máy đếm nhịp</button>
       </div>
     </header>
     <div id="midiStatus" class="midi-status">Chưa kết nối đàn. Cắm cáp USB từ cổng "USB TO HOST" của đàn vào máy tính, rồi bấm "Kết nối đàn".</div>
+
+    <div id="micStatus" class="midi-status hidden"></div>
 
     <button id="continueBtn" class="continue hidden"></button>
 
@@ -45,11 +50,16 @@
       <div class="instr">
         <div id="instrText">Chơi các nốt sau</div>
         <div id="tipText" class="tip"></div>
+        <div class="play-actions">
+          <button id="demoBtn" class="chip small">▶ Nghe app chơi mẫu</button>
+          <button id="viewBtn" class="chip small">Giao diện: Khuông nhạc</button>
+        </div>
       </div>
       <div class="right">
         <div class="progress"><div id="progFill"></div><span id="progText">0/0</span></div>
         <div class="metro">
           <button id="metroBtn" class="chip small">Máy đếm nhịp: Tắt</button>
+          <button id="metroHelpBtn" class="round help" aria-label="Hướng dẫn dùng máy đếm nhịp" title="Hướng dẫn dùng máy đếm nhịp">?</button>
           <div class="bpm">
             <button id="bpmDown" class="round" aria-label="Chậm hơn">−</button>
             <span id="bpmText">60</span>
@@ -57,10 +67,16 @@
           </div>
           <div id="beatDots" class="dots"></div>
         </div>
+        <div class="metro">
+          <span id="micHear" class="mic-hear"></span>
+          <button id="micBtn" class="chip small">Micro: Tắt</button>
+          <button id="micHelpBtn" class="round help" aria-label="Micro hay cáp MIDI?" title="Micro hay cáp MIDI?">?</button>
+        </div>
       </div>
     </div>
     <div class="staff-wrap">
       <div id="staff" class="staff"></div>
+      <canvas id="wf" class="wf hidden"></canvas>
       <div id="countIn" class="count-in hidden"></div>
       <div id="feedback" class="feedback"></div>
     </div>
@@ -86,6 +102,87 @@
       <button id="thStart" class="btn">Bắt đầu luyện tập</button>
       <button id="thDone" class="btn ghost">Đã hiểu · Về mục lục</button>
       <button id="thHome" class="btn ghost">Về mục lục</button>
+    </div>
+  </div>
+
+  <!-- HƯỚNG DẪN MÁY ĐẾM NHỊP -->
+  <div id="metroHelp" class="overlay hidden">
+    <div class="card wide">
+      <h2>Cách dùng máy đếm nhịp</h2>
+      <div class="th-body help-body">
+        <h3>1. Máy đếm nhịp là gì?</h3>
+        <p>Là tiếng <b>"tíc – tíc – tíc"</b> đều đặn như kim giây đồng hồ. Mỗi tiếng tíc là <b>1 phách</b>. Nó giúp anh chơi đều tay, không lúc nhanh lúc chậm.</p>
+        <p>Tiếng tíc đầu mỗi ô nhịp cao hơn một chút, và chấm đầu tiên sáng <b>màu vàng</b>. Đó là <b>phách 1</b>.</p>
+
+        <h3>2. Bật và tắt</h3>
+        <p>Bấm nút <b>"Máy đếm nhịp: Tắt"</b> để chuyển thành <b>"Bật"</b>. Bài sẽ bắt đầu lại từ đầu. Bấm lần nữa để tắt.</p>
+        <p>Khi <b>tắt</b>, app chờ anh bấm đúng nốt rồi mới đi tiếp, không tính nhịp. Hợp để tập cho thuộc nốt.</p>
+
+        <h3>3. Chỉnh tốc độ (BPM)</h3>
+        <p><b>BPM</b> là số tiếng tíc trong một phút. <b>60 BPM = mỗi giây một tiếng tíc</b>. Số càng nhỏ càng chậm.</p>
+        <p>Bấm <b>−</b> để chậm hơn, <b>+</b> để nhanh hơn (mỗi lần 5). Mỗi bài có sẵn một tốc độ gợi ý, anh cứ hạ xuống nếu thấy khó.</p>
+
+        <h3>4. Nghe đếm vào rồi mới chơi</h3>
+        <p>Khi bật, app <b>đếm vào một ô nhịp</b>: số <b>1 – 2 – 3 – 4</b> hiện to giữa màn hình (nhịp 3/4 thì đếm 1 – 2 – 3). Lúc này <b>chỉ nghe, chưa chơi</b>.</p>
+        <p>Chơi nốt đầu tiên <b>đúng tiếng tíc ngay sau số cuối</b>. Bài có ô nhịp lấy đà (ví dụ When the Saints) thì vào nốt đầu muộn hơn, ở phách 2.</p>
+
+        <h3>5. Giữ nốt theo tiếng tíc</h3>
+        <p>Nốt đen giữ <b>1 tíc</b>, nốt trắng <b>2 tíc</b>, nốt trắng chấm dôi <b>3 tíc</b>, nốt tròn <b>4 tíc</b>. Gặp dấu lặng thì nhấc tay lên nhưng <b>vẫn đếm</b> theo tiếng tíc.</p>
+
+        <h3>6. Màu sắc và điểm "Đúng nhịp"</h3>
+        <p><span class="dot green"></span><b>Xanh lá</b> = chơi đúng nhịp. <span class="dot orange"></span><b>Cam</b> = hơi sớm hoặc hơi muộn. Chữ "Hơi sớm" hay "Hơi muộn" hiện dưới khuông nhạc.</p>
+        <p>Hết bài, app cho điểm <b>Đúng nốt</b> và <b>Đúng nhịp</b>, số sao tính theo cả hai.</p>
+        <p>Lỡ chơi chậm một nốt cũng không sao: app tính nốt tiếp theo từ lúc anh vừa bấm, nên một lần trễ không làm hỏng cả bài.</p>
+
+        <h3>7. Mẹo tập cho người mới</h3>
+        <p>• Tập bài với máy đếm nhịp <b>tắt</b> trước, đến khi thuộc nốt.</p>
+        <p>• Bật máy đếm nhịp ở tốc độ <b>thật chậm (40 – 50)</b>.</p>
+        <p>• <b>Đếm to</b> theo tiếng tíc: "một – hai – ba – bốn".</p>
+        <p>• Khi được 3 sao, tăng thêm 5 BPM rồi tập lại.</p>
+        <p>• Bấm sai thì <b>đừng dừng lại</b>, cứ chơi tiếp theo nhịp. Đây là thói quen quan trọng nhất.</p>
+        <p>• Nếu anh đeo tai nghe cắm vào đàn P-45, tiếng tíc vẫn phát ra từ loa máy tính, nhớ bật âm lượng máy tính lên.</p>
+      </div>
+      <button id="metroHelpClose" class="btn">Đã hiểu</button>
+    </div>
+  </div>
+
+  <!-- HƯỚNG DẪN MICRO / MIDI -->
+  <div id="micHelp" class="overlay hidden">
+    <div class="card wide">
+      <h2>Nghe bằng micro hay cắm cáp MIDI?</h2>
+      <div class="th-body help-body">
+        <h3>1. Hai cách để app "nghe" anh chơi</h3>
+        <p><b>Cáp MIDI:</b> cáp USB nối cổng "USB TO HOST" của đàn với máy. Đàn báo cho app <b>chính xác phím nào được bấm</b>, lúc nào.</p>
+        <p><b>Micro:</b> app nghe tiếng đàn qua micro của máy tính, điện thoại hoặc iPad, rồi <b>đoán nốt</b> từ cao độ âm thanh. Không cần cáp.</p>
+
+        <h3>2. So sánh nhanh</h3>
+        <table class="cmp">
+          <tr><th></th><th>Cáp MIDI</th><th>Micro</th></tr>
+          <tr><td>Cần chuẩn bị</td><td>Cáp USB A–B (MacBook cần thêm đầu chuyển USB-C)</td><td class="good">Không cần gì thêm</td></tr>
+          <tr><td>Thiết bị</td><td>Chrome/Edge trên máy tính, Android. <b>Không</b> chạy trên iPhone/iPad</td><td class="good">Máy tính, Android, iPhone/iPad, cả đàn cơ</td></tr>
+          <tr><td>Bài từng nốt một</td><td class="good">Rất chính xác</td><td>Khá tốt trong phòng yên tĩnh, nốt trầm đôi khi bị nhầm quãng tám</td></tr>
+          <tr><td>Hợp âm, hai tay cùng lúc</td><td class="good">Chấm đủ từng nốt</td><td class="bad">Chỉ nghe được một nốt, nên chấm gần đúng</td></tr>
+          <tr><td>Chấm nhịp</td><td class="good">Gần như tức thì</td><td>Chậm hơn khoảng 0,05–0,1 giây, kém chính xác hơn</td></tr>
+          <tr><td>Tiếng ồn xung quanh</td><td class="good">Không ảnh hưởng</td><td class="bad">Tiếng nói, TV, quạt có thể làm app nghe nhầm</td></tr>
+          <tr><td>Tai nghe</td><td class="good">Đeo tai nghe vào đàn thoải mái</td><td class="bad">Không được: đàn tắt loa nên micro không nghe thấy</td></tr>
+        </table>
+
+        <h3>3. Nhãn gợi ý trong từng bài</h3>
+        <p><span class="badge mic">Dùng micro cũng được</span> bài chơi từng nốt một, micro nghe tốt.</p>
+        <p><span class="badge midi">Nên dùng cáp MIDI</span> bài có hợp âm hoặc hai tay cùng lúc. Với micro, app chỉ cần nghe đúng một nốt trong hợp âm là cho qua, nên điểm chỉ là gần đúng.</p>
+
+        <h3>4. Mẹo khi dùng micro</h3>
+        <p>• Bấm <b>"Micro: Tắt"</b> để bật, trình duyệt sẽ hỏi quyền dùng micro lần đầu, chọn <b>Cho phép (Allow)</b>.</p>
+        <p>• Ngồi phòng yên tĩnh, đặt máy cách loa đàn khoảng <b>0,5 – 1 mét</b>.</p>
+        <p>• Để âm lượng đàn vừa phải, đừng quá nhỏ. <b>Không cắm tai nghe vào đàn</b>.</p>
+        <p>• Chơi rõ từng nốt. Hai nốt giống nhau liền nhau thì nhấc tay hẳn rồi mới bấm lại.</p>
+        <p>• Góc trên bên phải có dòng <b>"Micro nghe: ..."</b> cho biết app vừa nghe ra nốt gì. Nếu nó hay sai, hãy dùng cáp MIDI.</p>
+        <p>• Nếu đang cắm cáp MIDI, app tự bỏ qua micro để không chấm hai lần.</p>
+
+        <h3>5. Lưu ý</h3>
+        <p>Bản xem thử trong Claude có thể không được dùng micro và đàn. Bản tải về mở bằng Chrome trên MacBook dùng được cả hai. Để dùng micro trên iPad/iPhone, app cần được đưa lên một trang web (ví dụ GitHub Pages).</p>
+      </div>
+      <button id="micHelpClose" class="btn">Đã hiểu</button>
     </div>
   </div>
 
